@@ -46,8 +46,10 @@ compareClasses <- function(originalData,band){
   lines(c4.densityBand,col="Blue")
 }
 
+#Change the csv location for the code to run on data from other images.
 originalData = read.csv("finaldata-2015-12-31.csv")
-colnames(originalData) = c("X","Y","Class","Ultra_Blue","Blue","Green","Red","NIR","SWNIR_1","SWNIR_2","Cirrus")
+#this line needed if the csv does not have proper band names
+#colnames(originalData) = c("X","Y","Class","Ultra_Blue","Blue","Green","Red","NIR","SWNIR_1","SWNIR_2","Cirrus")
 compareClasses(originalData,1)
 compareClasses(originalData,2)
 compareClasses(originalData,3)
