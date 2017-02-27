@@ -1,6 +1,7 @@
 # Code for saving the classifier on each image after validation.
 
 library(e1071)
+setwd("C:/Users/Sanket Shahane/Google Drive/MS/ALDA/Project/Multi-Temporal-Classification/TrainingData/ValidationData")
 dataset = read.csv("ValidationData-2016-03-20.csv") #open the image data
 dataset = dataset[,-c(1,2,3)]
 # shuffle dataset for cross-validation
@@ -14,7 +15,7 @@ for(i in seq(0,k-1,1)){
   testVector = testVector + nrow(dataset)%/%k*i
   testData = dataset[testVector,]
   trainData = dataset[-testVector,]
-  
+#  readGdal
   temp.model = naiveBayes(as.factor(trainData$Class)~.,data=trainData)
   temp.predictions = predict(temp.model,testData[,-1])
   tmp.err = sum(temp.predictions!=testData[,1])/nrow(testData)
